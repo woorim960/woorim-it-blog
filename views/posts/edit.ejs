@@ -1,0 +1,38 @@
+<!-- views/posts/edit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    <div class="container mb-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-1 pl-2 pr2">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/posts">Board</a></li>
+                <li class="breadcrumb-item"><a href="/posts/<%= post._id %>"><%= post.title %></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Post</li>
+            </ol>
+        </nav>
+
+        <form action="/posts/<%= post._id %>?_method=put" method="POST">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" value="<%= post.title %>" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea name="body" id="body" rows="5" class="form-control"><%= post.body %></textarea>
+            </div>
+
+            <div>
+                <a href="/posts/<%= post._id %>" class="btn btn-primary">Back</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
