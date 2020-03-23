@@ -1,18 +1,30 @@
 body {
     font-family: 'Open Sans', sans-serif;
+    color: rgb(125, 105, 75);
+    background-color: rgba(255, 227, 191, 0.575);
+    
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: rgb(222, 163, 35);
 }
 
 .nav-main,
 .nav-main:hover {
-    color: rgba(0, 0, 0, 0.795);
+    color: rgba(237, 237, 237, 0.795);
     padding: 8px;
     font-weight: bold;
 }
 
 .nav-main:hover {
     text-decoration: none;
-    background: rgb(233, 233, 233);
+    background: rgb(89, 89, 89);
     border-radius: 4px;
+}
+
+.jumbotron {
+    background-color: rgba(226, 225, 195, 0.603);
 }
 
 .breadcrumb-item {
@@ -42,4 +54,15 @@ body {
 
 .user-form {
     width: 400px;
+}
+
+.btn-primary {
+    background-color: blanchedalmond;
+    border-color: rgb(43, 43, 43);
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: burlywood;
+    border-color: rgb(43, 43, 43);
 }

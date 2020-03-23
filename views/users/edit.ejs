@@ -10,12 +10,12 @@
 
     <div class="container mb-3">
 
-      <h3 class="mb-3">Edit User</h3>
+      <h3 class="mb-3">유저 정보수정</h3>
 
       <form action="/users/<%= user.username %>?_method=put" method="post">
 
         <div class="form-group row">
-          <label for="currentPassword" class="col-sm-3 col-form-label">Current Password*</label>
+          <label for="currentPassword" class="col-sm-3 col-form-label">비밀번호 확인*</label>
           <div class="col-sm-9 col-sm-offset-3">
             <input type="password" id="currentPassword" name="currentPassword" value="" class="form-control">
           </div>
@@ -24,47 +24,47 @@
         <hr></hr>
 
         <div class="form-group row">
-          <label for="username" class="col-sm-3 col-form-label">Username*</label>
+          <label for="username" class="col-sm-3 col-form-label">유저 이름*</label>
           <div class="col-sm-9">
             <input type="text" id="username" name="username" value="<%= user.username %>" class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="name" class="col-sm-3 col-form-label">Name*</label>
+          <label for="name" class="col-sm-3 col-form-label">이름*</label>
           <div class="col-sm-9">
             <input type="text" id="name" name="name" value="<%= user.name %>" class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="email" class="col-sm-3 col-form-label">Email</label>
+          <label for="email" class="col-sm-3 col-form-label">이메일</label>
           <div class="col-sm-9">
             <input type="text" id="email" name="email" value="<%= user.email %>" class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="newPassword" class="col-sm-3 col-form-label">New Password</label>
+          <label for="newPassword" class="col-sm-3 col-form-label">새 비밀번호</label>
           <div class="col-sm-9 col-sm-offset-3">
             <input type="password" id="newPassword" name="newPassword" value="" class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="passwordConfirmation" class="col-sm-3 col-form-label">Password Confirmation</label>
+          <label for="passwordConfirmation" class="col-sm-3 col-form-label">새 비밀번호 확인</label>
           <div class="col-sm-9 col-sm-offset-3">
             <input type="password" id="passwordConfirmation" name="passwordConfirmation" value="" class="form-control">
           </div>
         </div>
 
         <p>
-          <small>*Required</small>
+          <small>*필수</small>
         </p>
 
         <div class="buttons">
-          <a class="btn btn-primary" href="/users/<%= user.username %>">Back</a>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <a class="btn btn-primary" href="/users/<%= user.username %>">이전</a>
+          <button type="submit" class="btn btn-primary">확인</button>
         </div>
 
       </form>

@@ -13,14 +13,14 @@
     <form action="/users" method="post" class="user-form">
       <fieldset disabled>
         <div class="form-group row">
-          <label for="name" class="col-sm-3 col-form-label">Name</label>
+          <label for="name" class="col-sm-3 col-form-label">이름</label>
           <div class="col-sm-9">
             <input type="text" id="name" name="name" value="<%= user.name %>" class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="email" class="col-sm-3 col-form-label">Email</label>
+          <label for="email" class="col-sm-3 col-form-label">이메일</label>
           <div class="col-sm-9">
             <input type="text" type="text" id="email" name="email" value="<%= user.email %>" class="form-control">
           </div>
@@ -30,10 +30,10 @@
 
     <div>
       <a href="/users" class="btn btn-primaty"><Back/a>
-      <a href="/users/<%= user.username %>/edit" class="btn btn-primaty">Edit</a>
+      <a href="/users/<%= user.username %>/edit" class="btn btn-primaty">유저 정보수정</a>
 
       <form action="/users/<%= user.username %>?_method=delete" method="post" class="d-inline">
-        <a href="javascript:void(0)" class="btn btn-primary" onclick="confirm('Do you want to delete this?') ? this.parentElement.submit() : null;">Delete</a>
+        <a href="javascript:void(0)" class="btn btn-primary" onclick="confirm('정말로 삭제하시겠습니까?') ? this.parentElement.submit() : null;">유저 삭제</a>
       </form>
     </div>
 
