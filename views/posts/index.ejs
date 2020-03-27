@@ -6,19 +6,19 @@
 <body>
     <%- include('../partials/nav') %>
     <div class="container mb-3">
-        <h2 class="mb-3">Board</h2>
+        <h2 class="mb-3">게시판</h2>
         <table class="board-table table table-sm border-bottom">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col" class="date">Date</th>
+                    <th scope="col">제목</th>
+                    <th scope="col" class="date">생성 날짜</th>
                 </tr>
             </thead>
 
             <tbody>
                 <% if(posts == null || posts.length == 0) { %>
                     <tr>
-                        <td colspan=2> There is no data to show :( </td>
+                        <td colspan=2> 생성된 게시글이 없습니다. </td>
                     </tr>
                 <% } %>
                 <% posts.forEach(function(post) { %>
@@ -35,7 +35,7 @@
         </table>
 
         <div>
-            <a href="/posts/new" class="btn btn-primary">New</a>
+            <a href="/posts/new" class="btn btn-primary">글쓰기</a>
         </div>
     </div>
 </body>

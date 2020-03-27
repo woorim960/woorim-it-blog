@@ -10,28 +10,42 @@
     <div class="container mb-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb p-1 pl-2 pr2">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/posts">Board</a></li>
+                <li class="breadcrumb-item"><a href="/">홈</a></li>
+                <li class="breadcrumb-item"><a href="/posts">게시판</a></li>
                 <li class="breadcrumb-item"><a href="/posts/<%= post._id %>"><%= post.title %></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Post</li>
+                <li class="breadcrumb-item active" aria-current="page">게시글 수정</li>
             </ol>
         </nav>
 
-        <form action="/posts/<%= post._id %>?_method=put" method="POST">
+        <form action="/posts/<%= post._id %>?_method=put" method="post">
+
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" value="<%= post.title %>" class="form-control">
+                <input type="text" id="title" name="title" value="<%= post.title %>" class="form-control <%= (errors.title)?'is-invalid':'' %>">
+                <% if(errors.title){ %>
+                <span class="invalid-feedback"><%= errors.title.message %></span>
+                <% } %>
             </div>
 
             <div class="form-group">
                 <label for="body">Body</label>
-                <textarea name="body" id="body" rows="5" class="form-control"><%= post.body %></textarea>
+                <textarea id="body" name="body" rows="5" class="form-control <%= (errors.body)?'is-invalid':'' %>"><%= post.body %></textarea>
+                <% if(errors.body){ %>
+                <span class="invalid-feedback"><%= errors.body.message %></span>
+                <% } %>
             </div>
 
+            <% if(errors.unhandled){ %>
+                <div class="invalid-feedback b-block">
+                <%= errors.unhandled %>
+                </div>
+            <% } %>
+
             <div>
-                <a href="/posts/<%= post._id %>" class="btn btn-primary">Back</a>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-primary" href="/posts">이전</a>
+                <button type="submit" class="btn btn-primary">저장</button>
             </div>
+    
         </form>
     </div>
 </body>
