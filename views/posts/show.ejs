@@ -43,10 +43,12 @@
 
         <div class="mt-3">
             <a class="btn btn-primary" href="/posts">이전</a>
-            <a class="btn btn-primary" href="/posts/<%= post._id %>/edit">수정</a>
-            <form action="/posts/<%= post._id %>?_method=delete" method="post" class="d-inline">
-                <a class="btn btn-primary" href="javascript:void(0)" onclick="confirm('정말로 삭제하시겠습니까?')?this.parentElement.submit():null;">삭제</a>
-            </form>
+            <% if(isAuthenticated && post.author && currentUser.id == post.author.id) { %>
+                <a class="btn btn-primary" href="/posts/<%= post._id %>/edit">수정</a>
+                <form action="/posts/<%= post._id %>?_method=delete" method="post" class="d-inline">
+                    <a class="btn btn-primary" href="javascript:void(0)" onclick="confirm('정말로 삭제하시겠습니까?')?this.parentElement.submit():null;">삭제</a>
+                </form>
+            <% } %>
         </div>
 
         </div>

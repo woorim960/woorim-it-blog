@@ -25,7 +25,7 @@ var userSchema = mongoose.Schema({
     },
     email: {
         type:String,
-        match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, '이메일 형식을 준수해주세요.'],
+        match: [/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, '올바른 이메일 형식이 아닙니다.'],
         trim: true
     }
 }, {

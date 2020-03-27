@@ -1,3 +1,5 @@
+<!-- views/posts/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +41,9 @@
         </table>
 
         <div>
-            <a href="/posts/new" class="btn btn-primary">글쓰기</a>
+            <% if(isAuthenticated) { %>
+                <a href="/posts/new" class="btn btn-primary">글쓰기</a>
+            <% } %>
         </div>
     </div>
 </body>
