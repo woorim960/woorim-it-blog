@@ -55,5 +55,5 @@ app.use('/users', require('./routes/users'));
 // Port setting
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
-    console.log('server on! http://localhost:' + port);
+    console.log('server on! http://woorim-it-blog.herokuapp.com:' + port);
 });

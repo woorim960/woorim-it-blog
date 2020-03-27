@@ -29,12 +29,14 @@
     </form>
 
     <div>
-      <a href="/users" class="btn btn-primaty"><Back/a>
-      <a href="/users/<%= user.username %>/edit" class="btn btn-primaty">유저 정보수정</a>
+      <% if(isAuthenticated && currentUser.id == user.id) { %>
+        <a href="/users" class="btn btn-primary">이전</a>
+        <a href="/users/<%= user.username %>/edit" class="btn btn-primary">수정</a>
 
-      <form action="/users/<%= user.username %>?_method=delete" method="post" class="d-inline">
-        <a href="javascript:void(0)" class="btn btn-primary" onclick="confirm('정말로 삭제하시겠습니까?') ? this.parentElement.submit() : null;">유저 삭제</a>
-      </form>
+        <form action="/users/<%= user.username %>?_method=delete" method="post" class="d-inline">
+          <a href="javascript:void(0)" class="btn btn-primary" onclick="confirm('정말로 삭제하시겠습니까?') ? this.parentElement.submit() : null;">삭제</a>
+        </form>
+      <% } %>
     </div>
 
   </div>
