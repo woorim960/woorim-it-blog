@@ -20,7 +20,7 @@ router.post('/', function(req, res) {
             req.flash('errors', util.parseError(err));
             return res.redirect('/users/new');
         }
-        res.redirect('/users');
+        res.redirect('/login');
     });
 });
 
