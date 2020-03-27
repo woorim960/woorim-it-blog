@@ -12,6 +12,11 @@ var postSchema = mongoose.Schema({
         type: String, 
         required:[true, '필수 입력사항입니다.']
     },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+        required: true
+    },
     createdAt: {
         type: Date, 
         default: Date.now

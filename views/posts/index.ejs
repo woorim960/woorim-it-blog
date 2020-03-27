@@ -11,6 +11,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">제목</th>
+                    <th scope="col" class="author">생성 유저</th>
                     <th scope="col" class="date">생성 날짜</th>
                 </tr>
             </thead>
@@ -25,6 +26,9 @@
                     <tr>
                         <td>
                             <a href="/posts/<%= post._id %>"><div class="ellipsis"><%= post.title %></div></a>
+                        </td>
+                        <td class="author">
+                            <div class="ellipsis"><%= post.author ? post.author.username : '' %></div>
                         </td>
                         <td class="date">
                             <span data-date="<%= post.createdAt %>"></span>

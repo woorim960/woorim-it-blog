@@ -27,11 +27,14 @@
             </div>
 
             <div class="col-md-5 col-lg-4 col-xl-3 order-sm-2 order-md-2">
-                <div class="post-info card m-2 p-2"> 
-                <div><span>생성 날짜</span> : <span data-date-time="<%= post.createdAt %>"></span></div>
-                <% if(post.updatedAt) { %>
-                    <div><span>수정 날짜</span> : <span data-date-time="<%= post.updatedAt %>"></span></div>
-                <% } %>
+                <div class="post-info card m-2 p-2">
+                    <div class="border-bottom pb-1 mb-1">
+                        <span>생성 유저</span> : <%= post.author ? post.author.username : '' %>
+                    </div>
+                    <div><span>생성 날짜</span> : <span data-date-time="<%= post.createdAt %>"></span></div>
+                    <% if(post.updatedAt) { %>
+                        <div><span>수정 날짜</span> : <span data-date-time="<%= post.updatedAt %>"></span></div>
+                    <% } %>
                 </div>
             </div>
 
