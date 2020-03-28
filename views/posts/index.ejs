@@ -40,11 +40,55 @@
             </tbody>
         </table>
 
-        <div>
-            <% if(isAuthenticated) { %>
-                <a href="/posts/new" class="btn btn-primary">글쓰기</a>
-            <% } %>
+        <div class="row mb-3">
+            <div class="col-2">
+                <% if(isAuthenticated) { %>
+                    <a href="/posts/new" class="btn btn-primary">글쓰기</a>
+                <% } %>
+            </div>
+
+            <nav class="col-8">
+                <% 
+                    var offset = 2;
+                    var previousBtnEnabled = currentPage > 1;
+                    var nextBtnEnabled = currentPage < maxPage;    
+                %>
+                <ul class="pagination pagination-sm justify-content-center align-items-center h-100 mb-0">
+                    <li class="page-item <%= previousBtnEnabled? '' : 'disable' %>">
+                        <a href="/posts?page=<%= currentPage-1 %>&limit=<%= limit %>" class="page-link" <%= previousBtnEnabled ? '' : 'tabindex=-1' %>>«</a>
+                    </li>
+
+                    <% for(i=1; i<=maxPage; i++) { %>
+                        <% if(i==1 || i==maxPage || (i>=currentPage-offset && i<=currentPage+offset)) { %>
+                            <li class="page-item <%= currentPage==i?'active':'' %>">
+                                <a class="page-link" href="/posts?page=<%= i %>&limit=<%= limit %>"> <%= i %> </a>
+                            </li>
+                        <% } else if(i==2 || i==maxPage-1){ %>
+                            <li><a class="page-link">...</a></li>
+                        <% } %>
+                    <% } %>
+
+                    <li class="page-item <%= nextBtnEnabled?'':'disable' %>">
+                        <a class="page-link" href="/posts?page=<%= currentPage+1 %>&limit=<%= limit %>" <%= nextBtnEnabled ? '' : 'tabindex=-1' %>>»</a>
+                      </li>
+                </ul>
+            </nav>
         </div>
+
+        <form action="/posts" method="get">
+            <div class="form-row">
+    
+              <div class="form-group col-3">
+                <label>설정</label>
+                <select name="limit" class="custom-select" onchange="this.parentElement.parentElement.parentElement.submit()">
+                  <option value="5" <%= limit==5?'selected':'' %>>5</option>
+                  <option value="10" <%= limit==10?'selected':'' %>>10</option>
+                  <option value="20" <%= limit==20?'selected':'' %>>20</option>
+                </select>
+              </div>
+    
+            </div>
+        </form>
     </div>
 </body>
 </html>

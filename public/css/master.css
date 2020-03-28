@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Do Hyeon', sans-serif;
     color: rgb(125, 105, 75);
@@ -66,4 +67,30 @@ a, a:hover {
 .btn-primary:hover {
     background-color: burlywood;
     border-color: rgb(43, 43, 43);
+}
+
+.page-link,
+.page-link:hover {
+    background-color: blanchedalmond;
+    color: burlywood;
+    border-color: rgb(43, 43, 43);
+}
+
+.page-link:hover {
+    background-color: rgba(150, 137, 120, 0.575);
+    color: rgb(243, 243, 243);
+    border-color: rgb(43, 43, 43);
+}
+
+.page-item.active .page-link {
+    background-color: burlywood;
+    color: white;
+    border-color: rgb(43, 43, 43);
+}
+
+.custom-select,
+.custom-select:focus {
+    background-color: blanchedalmond;
+    border-color: rgb(43, 43, 43);
+    color: black;
 }
